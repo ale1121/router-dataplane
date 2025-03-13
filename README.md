@@ -40,6 +40,23 @@ The routing table is stored in a trie for efficient lookup.
 
 ```send_icmp_message``` - sends error messages like _time exceeded_ or _destination unreachable_ 
 
+## Running
+
+    ./router <rtable_file> <iface1_name> <iface2_name> ...
+
+- `<rtable_file>` - path to the routing table file to load
+    - each line contains: <br>
+        `<destination> <next_hop> <subnet_mask> <iface_index>`
+    - examples can be found in the _rtables_ folder
+- `<iface1_name> <iface2_name> ...` - names of the interfaces the router should bind
+
+### Example use
+
+    ./router rtables/rtable0.txt rr-0-1 r-0 r-1
+
+    ./router rtables/rtable1.txt rr-0-1 r-0 r-1
+
+
 <br>
 
 ***
